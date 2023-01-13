@@ -18,7 +18,6 @@ export default () => {
                     icon={FaPlus}
                 />
                 <Item
-                    isActive={true}
                     anchor="test2"
                     href="test-url2"
                     icon={FaBeer}
