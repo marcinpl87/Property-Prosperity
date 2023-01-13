@@ -1,25 +1,25 @@
 import React from 'react';
 import Icon from './icon';
+import { NavLink } from "react-router-dom";
 
 export default ({
-    isActive,
     icon,
     anchor,
     href
 }: {
-    isActive?: boolean,
     icon: React.FC,
     anchor: string,
     href: string,
 }): JSX.Element => {
     return (
         <li className="navi-item">
-            <a
-                className={`
-                    navi-link
-                    ${(isActive) && 'active'}
-                `}
-                href={`#${href}`}
+            <NavLink
+                className={({isActive}) =>
+                    isActive
+                        ? "active"
+                        : undefined
+                }
+                to={`/${href}`}
             >
                 <span className="navi-icon">
                     <Icon component={icon} />
@@ -27,7 +27,7 @@ export default ({
                 <span className="navi-text font-size-lg">
                     {anchor}
                 </span>
-            </a>
+            </NavLink>
         </li>
     );
 };

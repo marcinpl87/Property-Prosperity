@@ -14,7 +14,7 @@ export default () => {
             <Card.Body className="navigation-card p-0">
                 <Item
                     anchor="test1"
-                    href="test-url1"
+                    href=""
                     icon={FaPlus}
                 />
                 <Item

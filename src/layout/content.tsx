@@ -1,27 +1,20 @@
 import React from 'react';
-import Example from './example'
+import {
+    Routes,
+    Route,
+    Outlet,
+} from "react-router-dom";
+import Home from '../pages/home';
 
 export default () => {
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-lg">
-                    <Example />
-                </div>
-                <div className="col-lg">
-                    <Example />
-                </div>
-            </div>
-            <div className="row">
-                <div className="col">
-                    <Example />
-                </div>
-            </div>
-            <div className="row">
-                <div className="col">
-                    <Example />
-                </div>
-            </div>
-        </div>
+        <Routes>
+            <Route path="/" element={<Outlet />}>
+                <Route index element={<Home />} />
+                <Route path="test-url2" element={<div>test2</div>} />
+                <Route path="test-url3" element={<div>test3</div>} />
+                <Route path="test-url4" element={<div>test4</div>} />
+            </Route>
+        </Routes>
     );
 };
