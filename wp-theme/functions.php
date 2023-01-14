@@ -1,4 +1,6 @@
 <?php
+const TABLE_FINANCE = "app_data";
+
 require_once get_template_directory().'/functions-lib.php';
 require_once get_template_directory().'/functions-api.php';
 

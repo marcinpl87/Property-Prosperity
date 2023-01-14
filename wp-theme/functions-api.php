@@ -4,7 +4,7 @@ add_action('rest_api_init', function() use(
 ) {
     register_rest_route(
         'mapi',
-        '/test',
+        '/finance',
         [
             'methods' => 'get',
             'permission_callback' => '__return_true',
@@ -13,16 +13,23 @@ add_action('rest_api_init', function() use(
             ) use(
                 &$wpdb
             ) {
-                secureData(function() use(
+                return secureData(function() use(
                     &$params,
                     &$wpdb
                 ) {
                     return (array) new WP_REST_Response([
-                        'test' => 123,
+                        'finance' => (array) $wpdb->get_results(
+                            '
+                                SELECT *
+                                FROM '.$wpdb->prefix.TABLE_FINANCE.'
+                                LIMIT 100
+                            ',
+                            ARRAY_A
+                        ),
                     ]);
                 });
             },
         ]
-    ); //URL: /wp-json/mapi/stats-health
+    ); //URL: /wp-json/mapi/finance
 });
 ?>

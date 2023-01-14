@@ -8,7 +8,7 @@ class Utils {
         }, 5000);
     };
 
-    secureFetch(url: string, callback: (data: any) => void) {
+    async secureFetch(url: string) {
         const requestHeaders: HeadersInit = new Headers();
         requestHeaders.set(
             'x-wp-nonce',
@@ -18,20 +18,20 @@ class Utils {
                 'data-nonce'
             ) || ''
         );
-        fetch(
+        const response: Response = await fetch(
             this.API_ENDPOINT + url,
             {
                 headers: requestHeaders,
             }
-        )
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.session !== '1') {
-                    this.expiredSessionHandler();
-                } else {
-                    callback(data.data);
-                }
-            });
+        );
+        const parsedResponse: any = await response.json();
+        if (parsedResponse!.session !== '1') {
+            this.expiredSessionHandler();
+            return false;
+        }
+        else {
+            return parsedResponse!.data;
+        }
     };
 };
 
