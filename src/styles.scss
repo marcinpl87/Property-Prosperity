@@ -1,5 +1,9 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 
+#root {
+    padding-bottom: 100px;
+}
+
 .navigation-card {
     padding: 0;
     margin: 0;
@@ -82,4 +86,10 @@
             }
         }
     }
+}
+
+.pagination .page-link:focus {
+    background-color: inherit;
+    box-shadow: none;
+    z-index: initial;
 }

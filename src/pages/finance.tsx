@@ -1,8 +1,16 @@
 import React from 'react';
-import BasicQuery from '../hooks/basic';
+import PaginatedQuery from '../hooks/paginated';
+import Table from '../components/table';
 
 export default () => {
-    const { isLoading, error, data, isFetching } = BasicQuery(
+    const {
+        isLoading,
+        error,
+        paginatedData,
+        page,
+        pagesCount,
+        changePage,
+    } = PaginatedQuery(
         'financeData',
         'finance'
     );
@@ -12,17 +20,24 @@ export default () => {
         <div className="container">
             <div className="row">
                 <div className="col">
-                    {data.finance.map(
-                        (
-                            fin: object & {
-                                value: number
-                            },
-                            i: number
-                        ) => <div key={i}>
-                            {fin.value}
-                        </div>
-                    )}
-                    <div>{isFetching ? "Updating..." : ""}</div>
+                    <Table
+                        header={[
+                            '#',
+                            'Date',
+                            'Sender',
+                            'Receiver',
+                        ]}
+                        columns={[
+                            'id',
+                            'date',
+                            'sender',
+                            'receiver',
+                        ]}
+                        page={page}
+                        data={paginatedData}
+                        setPage={changePage}
+                        pagesCount={pagesCount}
+                    />
                 </div>
             </div>
         </div>

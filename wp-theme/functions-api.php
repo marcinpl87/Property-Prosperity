@@ -22,7 +22,6 @@ add_action('rest_api_init', function() use(
                             '
                                 SELECT *
                                 FROM '.$wpdb->prefix.TABLE_FINANCE.'
-                                LIMIT 100
                             ',
                             ARRAY_A
                         ),

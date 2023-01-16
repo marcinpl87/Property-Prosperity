@@ -10,8 +10,8 @@ import Item from './item';
 
 export default () => {
     return (
-        <Card className="rounded-0">
-            <Card.Body className="navigation-card p-0">
+        <Card as="nav" className="rounded-0">
+            <Card.Body as="ul" className="navigation-card p-0">
                 <Item
                     anchor="test1"
                     href=""

@@ -9,9 +9,9 @@ export default () => {
                 <div className="col-sm-4 mb-4">
                     <Sidebar />
                 </div>
-                <div className="col-sm-8 pt-15 pb-10 g-0">
+                <main className="col-sm-8 pt-15 pb-10 g-0">
                     <Content />
-                </div>
+                </main>
             </div>
         </div>
     );

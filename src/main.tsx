@@ -17,7 +17,7 @@ ReactDOM.createRoot(
     <React.StrictMode>
         <HashRouter>
             <QueryClientProvider client={queryClient}>
-            <Layout />
+                <Layout />
                 <ReactQueryDevtools />
             </QueryClientProvider>
         </HashRouter>
