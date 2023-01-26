@@ -1,7 +1,21 @@
-import { describe, expect, it } from 'vitest';
+import { render } from '@testing-library/react';
+import { FaPlus } from 'react-icons/fa';
+import { HashRouter } from 'react-router-dom';
+import Item from '../layout/sidebar/item';
 
-describe('App', () => {
-    it('renders correctly', () => {
-        expect(1 + 1).toBe(2);
+describe('Sidebar', () => {
+    it('item renders link anchor', () => {
+        const randomString = (Math.random() + 1).toString(36).substring(2);
+        const result = render(
+            <HashRouter>
+                <Item
+                    anchor={randomString}
+                    href=""
+                    icon={FaPlus}
+                />
+            </HashRouter>
+        );
+
+        expect(result.getByText(randomString)).toBeInTheDocument();
     });
 });
