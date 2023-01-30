@@ -4,7 +4,7 @@ import Content from './content'
 
 export default () => {
     return (
-        <div className="container pt-5">
+        <div className="container pt-5" data-testid="layout-container">
             <div className="row">
                 <div className="col-sm-4 mb-4">
                     <Sidebar />

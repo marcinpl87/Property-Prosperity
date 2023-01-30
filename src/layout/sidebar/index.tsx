@@ -11,7 +11,11 @@ export default () => {
     const { t } = useTranslation();
 
     return (
-        <Card as="nav" className="rounded-0">
+        <Card
+            as="nav"
+            className="rounded-0"
+            data-testid="sidebar-container"
+        >
             <Card.Body as="ul" className="navigation-card p-0">
                 <Item
                     anchor={t("pageHome")}

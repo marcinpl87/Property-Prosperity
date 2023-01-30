@@ -3,7 +3,7 @@ import Example from '../layout/example';
 
 export default () => {
     return (
-        <div className="container">
+        <div className="container" data-testid="page-home-container">
             <div className="row">
                 <div className="col-lg">
                     <Example />
