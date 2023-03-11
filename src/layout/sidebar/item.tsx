@@ -8,7 +8,7 @@ export default ({
     anchor,
     href
 }: MenuItemType): JSX.Element => (
-        <li className="navi-item">
+    <li className="navi-item">
         <NavLink
             className={({isActive}) =>
                 isActive
@@ -24,5 +24,5 @@ export default ({
                 {anchor}
             </span>
         </NavLink>
-        </li>
+    </li>
 );

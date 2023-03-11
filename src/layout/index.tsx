@@ -1,24 +1,20 @@
-import React from 'react';
-import Sidebar from './sidebar'
-import Content from './content'
-import {
-    FaBeer,
-    FaPlus,
-} from 'react-icons/fa';
-import { useTranslation } from 'react-i18next';
+import { PropsWithChildren } from 'react';
 import { MenuItemType } from './sidebar/types';
 
 type SidebarProps = {
     menu: MenuItemType[];
 }
 
-const Wrapper = ({
-    sidebar,
-    menu
-}: {
+type LayoutProps = {
     sidebar: React.FC<SidebarProps>;
     menu: MenuItemType[];
-}): JSX.Element => {
+}
+
+export default ({
+    sidebar,
+    menu,
+    children
+}: PropsWithChildren<LayoutProps>): JSX.Element => {
     const SidebarComponent: React.FC<SidebarProps> = sidebar;
     return (
         <div className="container pt-5" data-testid="layout-container">
@@ -27,30 +23,9 @@ const Wrapper = ({
                     <SidebarComponent menu={menu} />
                 </div>
                 <main className="col-sm-8 pt-15 pb-10 g-0">
-                    <Content />
+                    {children}
                 </main>
             </div>
         </div>
-    );
-};
-
-export default () => {
-    const { t } = useTranslation();
-    return (
-        <Wrapper
-            sidebar={Sidebar}
-            menu={[
-                {
-                    anchor: t("pageHome"),
-                    href: "",
-                    icon: FaPlus,
-                },
-                {
-                    anchor: t("pageFinance"),
-                    href: "test-url2",
-                    icon: FaBeer,
-                },
-            ]}
-        />
     );
 };

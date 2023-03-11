@@ -8,18 +8,18 @@ export default ({
 }: {
     menu: MenuItemType[],
 }): JSX.Element => (
-        <Card
+    <Card
         as="nav"
         className="rounded-0"
         data-testid="sidebar-container"
-        >
-            <Card.Body as="ul" className="navigation-card p-0">
+    >
+        <Card.Body as="ul" className="navigation-card p-0">
             {menu.map((el, key) => (
                 <Item
                     key={key}
                     {...el}
                 />
             ))}
-            </Card.Body>
-        </Card>
+        </Card.Body>
+    </Card>
 );

@@ -9,7 +9,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import i18nConfig from './i18n';
-import Layout from './layout';
+import Layout from './layout/content';
 import './styles.scss';
 
 const queryClient = new QueryClient();
