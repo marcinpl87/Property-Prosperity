@@ -8,11 +8,13 @@ import {
 import {
     FaBeer,
     FaPlus,
+    FaArrowUp,
 } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import {
     Layout,
     Sidebar,
+    ScrollTop,
 } from 'marcinpl87-library';
 import Home from '../pages/home';
 import Finance from '../pages/finance';
@@ -58,6 +60,10 @@ export default () => {
                     <Route path="test-url4" element={<div>test4</div>} />
                 </Route>
             </Routes>
+            <ScrollTop
+                offset={300}
+                iconComp={FaArrowUp}
+            />
         </Layout>
     );
 };
